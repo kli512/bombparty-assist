@@ -18,6 +18,7 @@ Get `python3` and install the `selenium` package however you want.
 
 1. Install `Python 3.7` from the Microsoft Store
 2. Open a command prompt (or powershell) window and run `python3.7 -m pip install selenium`
+2. Open a command prompt (or powershell) window and run `python3.7 -m pip install progressbar2`
 
 * To compile to binary, install `pyinstaller` and run `make.bat` (for Windows).
 
