@@ -11,15 +11,13 @@ import search
 
 def run_cheat(syllable, driver, n):
     words = search.words_containing(syllable)
+    random.shuffle(words)
 
     if n >= 0:
-        random.shuffle(words)
         words = words[:n]
 
-    words.sort(key=len)
-
-    js = f'words = {str(words)};\n'
-    with open('insert_words.js') as f:
+    js = f'var smartWords = {str(words)};\n'
+    with open('insert_words.js', encoding='utf-8') as f:
         js += f.read()
 
     driver.switch_to.default_content()
@@ -32,7 +30,7 @@ class TextChange:
         self.element = element
         self.old_text = element.text
 
-    def __call__(self, driver):
+    def __call__(self, _):
         return self.element if self.element.text != self.old_text else False
 
 
